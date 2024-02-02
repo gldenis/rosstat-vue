@@ -1,0 +1,23 @@
+.advantages {
+    max-width: 560px;
+    width: 100%;
+    border-radius: 0 8px 8px 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__item {
+        color: rgba(21, 153, 90, 0.92);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 140%;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-radius: 8px;
+        background: linear-gradient(90.00deg, rgba(28, 154, 96, 0),rgba(28, 154, 96, 0.32) 100%);
+        padding: 12px 12px 12px 0;
+    }
+}

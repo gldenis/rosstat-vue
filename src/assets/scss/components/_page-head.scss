@@ -1,0 +1,14 @@
+.page-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+@media screen and (max-width: $tablet){
+    .page-head {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}

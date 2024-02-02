@@ -1,0 +1,27 @@
+@import "reset";
+@import "variables";
+@import "fonts";
+@import "base";
+
+body {
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: 400;
+    color: $color-white;
+}
+
+@import "ui/buttons";
+@import "ui/title";
+@import "ui/progress-bar";
+@import "burger";
+
+@import "sidebar";
+@import "components/page-head";
+@import "pages/home/home";
+@import "pages/home/hero";
+@import "pages/home/search-form";
+@import "pages/home/statistic";
+@import "pages/home/remove";
+@import "pages/home/protect";
+@import "step";
+@import "components/advantages";

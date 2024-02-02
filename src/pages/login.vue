@@ -1,0 +1,29 @@
+<script setup lang="ts">
+import AuthViewSwitcher from "@/components/AuthViewSwitcher.vue";
+import LoginForm from "@/components/LoginForm.vue";
+import { ref } from "vue";
+import PasswordRecoveryForm from "@/components/PasswordRecoveryForm.vue";
+
+const currentForm = ref('login')
+</script>
+
+<template>
+  <main class="page__content">
+    <div class="container">
+      <div class="page-head">
+        <h1 class="title">Вход и регистрация</h1>
+        <AuthViewSwitcher />
+      </div>
+      <PasswordRecoveryForm v-if="currentForm === 'recovery'" @login="currentForm = 'login'"/>
+      <LoginForm v-else @recovery="currentForm = 'recovery'"/>
+    </div>
+  </main>
+</template>
+
+<style scoped lang="scss">
+@media screen and (max-width: $tablet){
+  .title {
+    text-align: center;
+  }
+}
+</style>
