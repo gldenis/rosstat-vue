@@ -7,18 +7,14 @@ const formSubmit = () => {
 </script>
 
 <template>
-  <form class="login-form" @click.prevent="formSubmit">
-    <IconMe class="login-form__icon" width="48" height="48" />
-    <div class="login-form__title">Войти</div>
-    <div class="login-form__fields-list">
-      <label class="login-form__field">
-        <input type="text" class="login-form__input" placeholder="Адрес эл. почты">
-      </label>
-      <label class="login-form__field">
-        <input type="text" class="login-form__input" placeholder="Пароль">
-      </label>
+  <form class="auth-form" @click.prevent="formSubmit">
+    <IconMe class="auth-form__icon" width="48" height="48" />
+    <div class="auth-form__title">Войти</div>
+    <div class="auth-form__fields-list">
+      <input type="text" class="form-field__input" placeholder="Адрес эл. почты">
+      <input type="password" class="form-field__input" placeholder="Пароль">
     </div>
-    <div class="login-form__buttons">
+    <div class="auth-form__buttons">
       <button class="btn btn--primary">Войти</button>
       <button class="btn btn--transparent" @click.prevent="$emit('recovery')">Я забыл пароль</button>
     </div>
@@ -26,62 +22,5 @@ const formSubmit = () => {
 </template>
 
 <style scoped lang="scss">
-.login-form {
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 40px;
-  max-width: 440px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-top: 80px;
-  margin-left: auto;
-  margin-right: auto;
 
-  &__icon {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  &__title {
-    text-align: center;
-    color: rgb(255, 255, 255);
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 132%;
-  }
-
-  &__fields-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  &__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  &__field {
-    width: 100%;
-  }
-
-  &__input {
-    width: 100%;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    height: 52px;
-    padding: 10px 16px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 132%;
-    color: #fff;
-
-    &::placeholder {
-      color: rgb(157, 162, 173);
-    }
-  }
-}
 </style>

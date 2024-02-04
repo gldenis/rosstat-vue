@@ -16,6 +16,10 @@
     display: flex;
     height: max-content;
     scrollbar-gutter: stable;
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: 400;
+    color: $color-white;
 
     &--overflow {
         height: 100vh;

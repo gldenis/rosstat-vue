@@ -97,10 +97,10 @@ watch(
 
     <ul class="menu__list">
       <li class="menu__item">
-        <div class="menu__link">
+        <RouterLink to="/" class="menu__link">
           <IconAdvantage class="menu__icon" />
           Доступно проверок 1
-        </div>
+        </RouterLink>
       </li>
       <li class="menu__item">
         <RouterLink to="/support" class="menu__link">

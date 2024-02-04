@@ -62,6 +62,10 @@
             background: rgba(255, 255, 255, 0.10);
         }
 
+        &.router-link-exact-active {
+            background: rgba(255, 255, 255, 0.10);
+        }
+
         &--disabled {
             color: var(--606268, #606268);
             cursor: default;

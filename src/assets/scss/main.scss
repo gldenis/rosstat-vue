@@ -3,17 +3,15 @@
 @import "fonts";
 @import "base";
 
-body {
-    font-family: $font-family;
-    font-size: $font-size;
-    font-weight: 400;
-    color: $color-white;
-}
-
 @import "ui/buttons";
+@import "ui/input";
 @import "ui/title";
 @import "ui/progress-bar";
 @import "burger";
+
+@import "components/auth-form";
+@import "components/tile";
+@import "components/banner";
 
 @import "sidebar";
 @import "components/page-head";
@@ -25,3 +23,8 @@ body {
 @import "pages/home/protect";
 @import "step";
 @import "components/advantages";
+
+// Page protection
+
+@import "components/lessons";
+@import "components/lesson-subject";

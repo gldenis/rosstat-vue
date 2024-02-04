@@ -1,0 +1,78 @@
+.lesson {
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(180.00deg, rgba(255, 255, 255, 0.2),rgba(0, 1, 40, 0.4) 100%);
+
+    &__list {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__title {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 132%;
+        margin-bottom: 24px;
+    }
+}
+
+.lessons-thumbnails {
+    display: flex;
+    gap: 6px;
+    margin-top: 40px;
+
+    &__item {
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid transparent;
+        min-width: 71px;
+        vertical-align: middle;
+        color: rgb(255, 255, 255);
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 132%;
+        padding: 11px;
+        text-align: center;
+        cursor: pointer;
+        transition: .3s;
+
+        span {
+            display: none;
+        }
+
+        &--current {
+            border: 1px solid rgba(255, 255, 255, 0.92);
+            span {
+                display: inline-block;
+            }
+        }
+
+        &:hover {
+            border: 1px solid rgba(255, 255, 255, 0.92);
+        }
+    }
+}
+
+@media screen and (max-width: $desktop) {
+    .lessons-thumbnails {
+        overflow-x: scroll;
+        width: calc(100% + 64px);
+        padding: 0 32px;
+        margin-left: -32px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-xs) {
+    .lessons-thumbnails {
+        width: calc(100% + 32px);
+        padding: 0 16px;
+        margin-left: -16px;
+    }
+}

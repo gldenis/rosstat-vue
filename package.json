@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
+    "@vueuse/core": "^10.7.2",
     "pinia": "^2.1.7",
     "swiper": "^9.4.1",
     "vue": "^3.4.15",

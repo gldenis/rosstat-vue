@@ -32,33 +32,40 @@ const formSubmit = () => {
   align-items: stretch;
   margin-top: 80px;
 
-  .login-form {
+  .auth-form {
     margin-right: 0;
     margin-top: 0;
     margin-left: 0;
-    max-width: 320px;
+    max-width: 340px;
     border-radius: 8px 0 0 8px;
+    padding-right: 20px;
   }
 }
 
-@media screen and (max-width: $tablet){
-  .title {
-    text-align: center;
-  }
+@media screen and (max-width: $tablet) {
 
   .registration__wrapper {
     flex-direction: column;
     align-items: center;
 
-    .login-form {
+    .auth-form {
       max-width: 440px;
       border-radius: 8px 8px 0 0;
+      padding: 40px;
     }
   }
 
-  .registration-advantages {
+  .advantages {
     max-width: 440px;
     border-radius: 0 0 8px 8px;
+  }
+}
+
+@media screen and (max-width: $mobile-xs) {
+  .registration__wrapper {
+    .auth-form {
+      padding: 40px 20px;
+    }
   }
 }
 </style>

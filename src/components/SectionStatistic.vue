@@ -8,25 +8,27 @@ import IconExperience from "@/components/icons/statistic/IconExperience.vue";
 
 <template>
   <div class="statistic-section page__statistic">
-    <div class="statistic-section__item">
-      <IconUserDatabase class="statistic-section__icon" width="40" height="40" />
-      <div class="statistic-section__value">100 032 862</div>
-      <div class="statistic-section__text">Данных пользователей в базе</div>
-    </div>
-    <div class="statistic-section__item">
-      <IconService class="statistic-section__icon" width="40" height="40" />
-      <div class="statistic-section__value">32</div>
-      <div class="statistic-section__text">Инструментов для API мониторинга</div>
-    </div>
-    <div class="statistic-section__item">
-      <IconChecks class="statistic-section__icon" width="40" height="40" />
-      <div class="statistic-section__value">31</div>
-      <div class="statistic-section__text">Человек сегодня проверены</div>
-    </div>
-    <div class="statistic-section__item">
-      <IconExperience class="statistic-section__icon" width="40" height="40" />
-      <div class="statistic-section__value">12</div>
-      <div class="statistic-section__text">Опыта в сфере поиска и защиты данных</div>
+    <div class="tiles__list">
+      <div class="tiles__item">
+        <IconUserDatabase class="tiles__icon" width="40" height="40" />
+        <div class="tiles__value">100 032 862</div>
+        <div class="tiles__text">Данных пользователей в базе</div>
+      </div>
+      <div class="tiles__item">
+        <IconService class="tiles__icon" width="40" height="40" />
+        <div class="tiles__value">32</div>
+        <div class="tiles__text">Инструментов для API мониторинга</div>
+      </div>
+      <div class="tiles__item">
+        <IconChecks class="tiles__icon" width="40" height="40" />
+        <div class="tiles__value">31</div>
+        <div class="tiles__text">Человек сегодня проверены</div>
+      </div>
+      <div class="tiles__item">
+        <IconExperience class="tiles__icon" width="40" height="40" />
+        <div class="tiles__value">12</div>
+        <div class="tiles__text">Опыта в сфере поиска и защиты данных</div>
+      </div>
     </div>
   </div>
 </template>
