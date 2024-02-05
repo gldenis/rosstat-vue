@@ -120,10 +120,10 @@ watch(
         <div class="menu-monitoring">
           <div class="menu-monitoring__title">Мониторинг</div>
           <div class="menu-monitoring__text">Скройте данные от нежелательных лиц</div>
-          <a href="#" class="btn btn--outlined btn--small menu-monitoring__btn">
+          <RouterLink to="/monitoring" class="btn btn--outlined btn--small menu-monitoring__btn">
             <IconArrowRight name="arrow-right"/>
             Подробнее
-          </a>
+          </RouterLink>
         </div>
       </li>
     </ul>

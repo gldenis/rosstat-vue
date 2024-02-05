@@ -14,7 +14,7 @@
           Самый полный курс по защите от мошенничества и вымогателей в интернете
         </p>
       </div>
-      <a href="#" class="btn btn--primary protect-section__btn">Узнать подробнее</a>
+      <RouterLink to="/protection" class="btn btn--primary protect-section__btn">Узнать подробнее</RouterLink>
     </div>
   </div>
 </template>

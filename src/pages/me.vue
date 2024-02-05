@@ -9,11 +9,20 @@ import { ref } from "vue";
 import IconAsk from "@/components/icons/IconAsk.vue";
 import IconProtection from "@/components/icons/menu/IconProtection.vue";
 import IconMonitoringProtect from "@/components/icons/IconMonitoringProtect.vue";
+import AppSwitch from "@/components/ui/AppSwitch.vue";
+import IconUmbrela from "@/components/icons/IconUmbrela.vue";
+import IconCourseBanner from "@/components/icons/IconCourseBanner.vue";
+import IconBuyChecks from "@/components/icons/IconBuyChecks.vue";
+import IconFile from "@/components/icons/IconFile.vue";
+import SectionProtect from "@/components/SectionProtect.vue";
 
 const showRelations = ref(false)
 const toggleRelationList = () => {
   showRelations.value = !showRelations.value
 }
+
+const monitoringOn = ref(false)
+const currentTab = ref('monitoring')
 </script>
 
 <template>
@@ -26,27 +35,95 @@ const toggleRelationList = () => {
             <div class="user__name">Николай Резников</div>
             <div class="user__email">okaymaxim@gmail.com</div>
             <div class="user__mode">
-              <button class="user__mode-btn user__mode-btn--current">Информация</button>
-              <button class="user__mode-btn">Мониторинг</button>
+              <button class="user__mode-btn"
+                      :class="{ 'user__mode-btn--current': currentTab === 'info' }"
+                      @click="currentTab = 'info'"
+              >
+                Информация
+              </button>
+              <button class="user__mode-btn"
+                      :class="{ 'user__mode-btn--current': currentTab === 'monitoring' }"
+                      @click="currentTab = 'monitoring'"
+              >
+                Мониторинг
+              </button>
             </div>
           </div>
           <img class="user__pic" src="@/assets/img/user.jpg" alt="">
         </div>
-        <div class="monitoring">
-          <IconMonitoringProtect />
-          <div class="monitoring__content">
-            <div class="monitoring__title">Мониторинг</div>
-            <div class="monitoring__subtitle">Контролируйте доступ ваших данных</div>
-            <div class="monitoring__bottom">
-              <div class="monitoring__switch">Выключено</div>
-              <div class="monitoring__info">
-                <IconAsk />
+        <div class="monitoring-banner">
+          <IconMonitoringProtect/>
+          <div class="monitoring-banner__content">
+            <div class="monitoring-banner__title">Мониторинг</div>
+            <div class="monitoring-banner__subtitle">Контролируйте доступ ваших данных</div>
+            <div class="monitoring-banner__bottom">
+              <AppSwitch :checked="monitoringOn"
+                         @toggle="(value) => monitoringOn = value"
+                         :disabled="true"
+                         :label="monitoringOn ? 'Включен' : 'Выключено'"/>
+              <!--              <div class="monitoring__switch">Выключено</div>-->
+              <div class="monitoring-banner__info">
+                <IconAsk/>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="result">
+
+      <div v-if="currentTab === 'monitoring'" class="monitoring">
+        <div class="banner">
+          <div class="banner__left">
+            <IconUmbrela />
+            <div class="banner__text">
+              <div class="banner__title">Статус:  <span>Отключен</span></div>
+              <div class="banner__description">Все данные пользователя в интернете
+                по электронной почте</div>
+            </div>
+          </div>
+          <div class="banner__right">
+            <div class="banner-buy">
+              <div class="banner-buy__text">
+                <div class="banner-buy__label">Стоимость за: 2 недели</div>
+                <div class="banner-buy__price">
+                  <span class="banner-buy__price-old">100 ₽</span>
+                  <span class="banner-buy__price-value">180 ₽</span>
+                </div>
+              </div>
+              <input type="text" class="banner-buy__input" value="2">
+            </div>
+            <button class="btn btn--accent">Включить</button>
+          </div>
+        </div>
+
+        <section class="requests">
+          <h2 class="title title--small">Запросы на ваши данные</h2>
+          <div class="requests-fallback">
+            <div class="requests-fallback__inner">
+              <IconFile />
+              <div class="requests-fallback__text">
+                <div class="requests-fallback__title">Таблица с запросами пуста</div>
+                <div class="requests-fallback__description">Запросы начнут приходить после включения мониторинга</div>
+              </div>
+            </div>
+          </div>
+          <div class="requests__table">
+            <div class="requests__head">
+              <div class="requests__head-time">Дата и время</div>
+              <div class="requests__head-type">Дата и время</div>
+
+            </div>
+            <div class="requests__item" v-for="row of 7">
+              <div class="requests__time">23.09.23 | 14:43</div>
+              <div class="requests__description">23.09.23 | 14:43</div>
+              <div class="requests__actions">
+                <button class="btn btn--secondary btn--small">Проверить в ответ</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <SectionProtect class="page-me__protection" />
+      </div>
+      <div v-else class="result">
         <div class="user-section result__info">
           <div class="user-section__head">
             <h2 class="user-section__title">Информация</h2>
@@ -76,17 +153,17 @@ const toggleRelationList = () => {
                 <div class="name-relations__item">Березин Макси</div>
               </div>
             </div>
-          </DataBlock >
+          </DataBlock>
           <DataBlock title="Паспорт:"
                      :info="[
                        { title: 'Серия: 42 33' },
                        { title: 'Номер: 837 281' },
-                     ]" />
+                     ]"/>
           <DataBlock title="Телефон:"
                      :info="[
                        { title: 'Оператор (Йота): +79990592985' },
                        { title: 'Оператор (Мегафон): +79990592985' },
-                     ]" />
+                     ]"/>
           <DataBlock title="Соц. сети:"
                      :info="[
                        { title: 'ID 338920713: @Okeymaxim', icon: 'telegram' },
@@ -109,15 +186,15 @@ const toggleRelationList = () => {
             <h2 class="user-section__title">Медиа и документы</h2>
             <div class="media-category__list">
               <div class="media-category__item">
-                <IconImage />
+                <IconImage/>
                 5 938
               </div>
               <div class="media-category__item">
-                <IconMovies />
+                <IconMovies/>
                 349
               </div>
               <div class="media-category__item">
-                <IconFiles />
+                <IconFiles/>
                 1 293
               </div>
             </div>
@@ -165,13 +242,13 @@ const toggleRelationList = () => {
                        { title: 'RU' },
                        { title: 'Страна: Россия' },
                        { title: 'Приморский край' },
-                     ]" />
+                     ]"/>
           <DataBlock title="Возможные адреса:"
                      :info="[
                        { title: 'Страна: Россия' },
                        { title: 'Краснодарский край' },
                        { title: 'Краснодар' },
-                     ]" />
+                     ]"/>
         </div>
       </div>
     </div>
@@ -179,7 +256,188 @@ const toggleRelationList = () => {
 </template>
 
 <style scoped lang="scss">
+.requests {
+  margin-top: 60px;
+
+  &__table {
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    margin-top: 40px;
+  }
+
+  &__head-time {
+    width: 160px;
+    height: 32px;
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 152%;
+  }
+
+  &__head-type {
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 152%;
+    flex-grow: 1;
+  }
+
+  &__item, &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    gap: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  &__time {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  &__description {
+    flex-grow: 1;
+  }
+}
+
+.requests-fallback {
+  margin-top: 60px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+
+  &__inner {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 132%;
+  }
+
+  &__description {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+  }
+}
+
+.banner {
+  &__title {
+    span {
+      color: red;
+    }
+  }
+
+  &__description {
+    font-size: 14px;
+  }
+}
+
+.banner-buy {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  &__input {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 132%;
+    text-align: center;
+    border-bottom: 4px solid rgb(217, 155, 83);
+    border-right: 2px solid rgb(217, 155, 83);
+    border-radius: 4px;
+    background: rgba(18, 19, 20, 0.68);
+    padding: 10px 8px;
+    width: 100px;
+    height: 52px;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &__label {
+    color: rgb(157, 162, 173);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__price {
+    text-align: right;
+
+    &-value {
+      color: rgb(246, 248, 250);
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 132%;
+    }
+
+    &-old {
+      color: rgb(157, 162, 173);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 146%;
+      text-decoration-line: line-through;
+      margin-right: 12px;
+    }
+  }
+}
+
 .monitoring {
+  margin-top: 20px;
+}
+
+.monitoring-banner {
   backdrop-filter: blur(16px);
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("@/assets/img/monitoring.png");
   background-size: cover;
@@ -245,6 +503,7 @@ const toggleRelationList = () => {
   gap: 20px;
   margin-top: 40px;
 }
+
 .user {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.92);
@@ -277,7 +536,7 @@ const toggleRelationList = () => {
 
   &__mode {
     border-radius: 22px;
-    background:  rgba(222, 224, 227, 0.92);
+    background: rgba(222, 224, 227, 0.92);
     margin-top: auto;
   }
 
@@ -484,6 +743,7 @@ const toggleRelationList = () => {
       }
     }
   }
+
   img {
     object-fit: cover;
   }
