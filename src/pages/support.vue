@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
-import { reactive, ref } from "vue";
+import { reactive } from "vue";
 
 const currentFaq = reactive({
   group: 1,
@@ -47,6 +47,7 @@ const currentFaq = reactive({
 .faq {
   display: flex;
   gap: 40px;
+  margin-top: 40px;
 }
 
 .faq-card {
@@ -75,6 +76,7 @@ const currentFaq = reactive({
     img {
       border-radius: 8px;
       box-shadow: 0px 8px 16px 0px rgba(38, 43, 51, 0.4);
+      max-width: 100%;
     }
   }
 }
