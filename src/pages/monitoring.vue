@@ -33,6 +33,8 @@ import SectionProtect from '@/components/SectionProtect.vue'
 .page-monitoring {
   &__advantages {
     padding: 40px;
+    max-width: 100%;
+    border-radius: 8px;
   }
 
   &__remove {
