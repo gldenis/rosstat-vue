@@ -48,6 +48,7 @@ const currentFaq = reactive({
   display: flex;
   gap: 40px;
   margin-top: 40px;
+  align-items: flex-start;
 }
 
 .faq-card {

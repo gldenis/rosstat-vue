@@ -97,7 +97,7 @@ watch(
 
     <ul class="menu__list">
       <li class="menu__item">
-        <RouterLink to="/" class="menu__link">
+        <RouterLink to="/buy" class="menu__link">
           <IconAdvantage class="menu__icon" />
           Доступно проверок 1
         </RouterLink>
