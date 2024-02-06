@@ -5,14 +5,11 @@ import IconImage from "@/components/icons/IconImage.vue";
 import IconDownload from "@/components/icons/IconDownload.vue";
 import IconMovies from "@/components/icons/IconMovies.vue";
 import DataBlock from "@/components/DataBlock.vue";
-import { ref } from "vue";
+import { nextTick, ref } from "vue";
 import IconAsk from "@/components/icons/IconAsk.vue";
-import IconProtection from "@/components/icons/menu/IconProtection.vue";
 import IconMonitoringProtect from "@/components/icons/IconMonitoringProtect.vue";
 import AppSwitch from "@/components/ui/AppSwitch.vue";
 import IconUmbrela from "@/components/icons/IconUmbrela.vue";
-import IconCourseBanner from "@/components/icons/IconCourseBanner.vue";
-import IconBuyChecks from "@/components/icons/IconBuyChecks.vue";
 import IconFile from "@/components/icons/IconFile.vue";
 import SectionProtect from "@/components/SectionProtect.vue";
 
@@ -23,6 +20,17 @@ const toggleRelationList = () => {
 
 const monitoringOn = ref(false)
 const currentTab = ref('monitoring')
+
+const monitoringToggle = value => {
+  monitoringOn.value = value
+
+  const auth = true
+  if (!auth) {
+    nextTick(() => {
+      monitoringOn.value = false
+    })
+  }
+}
 </script>
 
 <template>
@@ -58,8 +66,7 @@ const currentTab = ref('monitoring')
             <div class="monitoring-banner__subtitle">Контролируйте доступ ваших данных</div>
             <div class="monitoring-banner__bottom">
               <AppSwitch :checked="monitoringOn"
-                         @toggle="(value) => monitoringOn = value"
-                         :disabled="true"
+                         @toggle="monitoringToggle"
                          :label="monitoringOn ? 'Включен' : 'Выключено'"/>
               <!--              <div class="monitoring__switch">Выключено</div>-->
               <div class="monitoring-banner__info">
@@ -89,9 +96,11 @@ const currentTab = ref('monitoring')
                   <span class="banner-buy__price-value">180 ₽</span>
                 </div>
               </div>
-              <input type="text" class="banner-buy__input" value="2">
             </div>
-            <button class="btn btn--accent">Включить</button>
+            <div class="banner__actions">
+              <input type="text" class="banner-buy__input" value="2">
+              <button class="btn btn--accent">Включить</button>
+            </div>
           </div>
         </div>
 
@@ -114,7 +123,7 @@ const currentTab = ref('monitoring')
             </div>
             <div class="requests__item" v-for="row of 7">
               <div class="requests__time">23.09.23 | 14:43</div>
-              <div class="requests__description">23.09.23 | 14:43</div>
+              <div class="requests__description">Что было проверено</div>
               <div class="requests__actions">
                 <button class="btn btn--secondary btn--small">Проверить в ответ</button>
               </div>
@@ -371,6 +380,11 @@ const currentTab = ref('monitoring')
 
   &__description {
     font-size: 14px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 24px;
   }
 }
 
@@ -789,6 +803,11 @@ const currentTab = ref('monitoring')
   .my-top {
     flex-direction: column;
   }
+
+  .banner {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: $tablet) {
@@ -809,6 +828,28 @@ const currentTab = ref('monitoring')
       width: 100%;
     }
   }
+
+}
+@media screen and (max-width: $phablet) {
+  .requests {
+    &__item {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    &__time {
+      order: 1;
+    }
+
+    &__description {
+      order: 3;
+      width: 100%;
+    }
+
+    &__actions {
+      order: 2;
+    }
+  }
 }
 
 @media screen and (max-width: $mobile) {
@@ -819,6 +860,74 @@ const currentTab = ref('monitoring')
 
     &__mode {
       margin-top: 20px;
+    }
+  }
+
+  .banner {
+    align-items: flex-start;
+
+    &__left {
+      gap: 16px;
+
+      svg {
+        flex-shrink: 0;
+      }
+    }
+
+    &__right {
+      flex-direction: column;
+      margin-left: 64px;
+      align-items: flex-start;
+    }
+
+    &__text {
+      align-items: flex-start;
+    }
+
+    &-buy {
+      &__price {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-xs) {
+  .banner {
+    align-items: center;
+
+    &__left {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__text {
+      align-items: center;
+      text-align: center;
+    }
+
+    &__actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__right {
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &-buy {
+      align-items: center;
+
+      &__text {
+        text-align: center;
+      }
+
+      &__price {
+        text-align: center;
+      }
     }
   }
 }

@@ -11,16 +11,19 @@ defineProps({
     type: Boolean
   }
 })
+
+defineEmits(['toggle'])
 </script>
 
 <template>
-  <label class="switch" :class="{ 'switch--on': checked, 'switch--disabled': disabled }">
+  <label class="switch" :class="{ 'switch--on': checked, 'switch--off': !checked }">
     <input
       v-bind="$attrs"
       class="switch__input"
       type="checkbox"
       :disabled="disabled"
       :checked="checked"
+      :value="checked"
       @change="$emit('toggle', $event.target.checked)"
     />
     <span class="switch__box"></span>
@@ -43,7 +46,7 @@ defineProps({
     border: 1px solid #15995A;
   }
 
-  &--disabled {
+  &--off {
     position: relative;
 
     &:before {
