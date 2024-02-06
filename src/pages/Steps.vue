@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
       <!--      <div class="step">
               <h2 class="title title&#45;&#45;xl">Быстрая и бесплатная проверка своих данных</h2>

@@ -5,7 +5,7 @@ import IconAgain from "@/components/icons/IconAgain.vue";
 </script>
 
 <template>
-  <form class="search-form page__search-form">
+  <form class="search-form" v-bind="$attrs">
     <div class="search-form__field">
       <IconMobile class="search-form__field-icon"  width="32" height="32"/>
       <input class="search-form__input" type="text" placeholder="Номер телефона">
@@ -16,7 +16,7 @@ import IconAgain from "@/components/icons/IconAgain.vue";
     </div>
   </form>
 
-  <form v-show="false" class="search-form page__search-form">
+  <form v-show="false" class="search-form page__search-form" v-bind="$attrs">
     <div class="search-form__field">
       <div class="search-form__field-icon search-form__field-icon--again">
         <IconAgain class="search-form__field-icon" width="20" height="20" />
@@ -31,7 +31,7 @@ import IconAgain from "@/components/icons/IconAgain.vue";
     </div>
   </form>
 
-  <div v-show="false" class="search-form page__search-form">
+  <div v-show="false" class="search-form page__search-form" v-bind="$attrs">
     <div class="search-form__field">
       <div class="search-form__field-icon search-form__field-icon--again">
         <IconAgain class="search-form__field-icon" width="20" height="20" />
@@ -43,7 +43,7 @@ import IconAgain from "@/components/icons/IconAgain.vue";
     </div>
   </div>
 
-  <form v-show="false" class="search-form page__search-form">
+  <form v-show="false" class="search-form page__search-form" v-bind="$attrs">
     <div class="search-form__field search-form__field--auto-height">
       <div class="search-form__field-icon search-form__field-icon--again">
         <IconAgain class="search-form__field-icon" width="20" height="20" />

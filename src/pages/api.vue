@@ -50,7 +50,7 @@ const copy = async () => {
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container page-api__container">
       <div class="head-top--column">
         <h1 class="title">API доступ</h1>

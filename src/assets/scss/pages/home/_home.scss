@@ -1,4 +1,8 @@
-.page {
+.page-home {
+    &__page-content {
+        padding-top: 0;
+    }
+
     &__search-form {
         margin: 20px 0;
     }
@@ -7,16 +11,25 @@
         margin: 60px 0;
     }
 
-    &__protect {
+    &__protection {
         margin-top: 60px;
     }
 }
 
+@media screen and (max-width: $desktop) {
+    .page-home__page-content {
+        padding-top: var(--header-height);
+    }
+}
 
 @media screen and (max-width: $mobile) {
-    .page {
+    .page-home {
         &__search-form {
             margin: 40px 0;
         }
     }
 }
+
+
+
+

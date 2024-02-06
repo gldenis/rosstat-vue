@@ -1,26 +1,45 @@
 <script setup lang="ts">
 
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import IconBurger from "@/components/icons/IconBurger.vue";
 
 const currentFaq = reactive({
   group: 1,
   item: 1
 })
+
+const { width, height } = useWindowSize()
+
+const categoriesIsOpened = ref(false)
+import { vOnClickOutside } from '@vueuse/components'
+const ignoreElRef = ref()
+const onClickOutsideHandler = [
+  (ev) => {
+    categoriesIsOpened.value = false
+  },
+  { ignore: [ignoreElRef] },
+]
+
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
       <div class="page-head">
         <h1 class="title">Поддержка</h1>
         <div class="page-head__support">
-          <div class="page-head__support-label">Если у вас есть вопросы, или вы обнаружили ошибку, свяжитесь с нами</div>
-          <button class="btn btn--accent">Связаться с нами</button>
+          <div v-if="width > 800" class="page-head__support-label">Если у вас есть вопросы, или вы обнаружили ошибку, свяжитесь с нами</div>
+          <button v-if="width <= 800" ref="ignoreElRef" class="btn btn--outlined" @click="categoriesIsOpened = true">
+            <IconBurger />
+            Катигории
+          </button>
+          <RouterLink to="/support-ticket" class="btn btn--accent">Связаться с нами</RouterLink>
         </div>
       </div>
       <div class="faq">
-        <div class="faq-groups__list">
+        <div class="faq-groups__list" :class="{ 'faq-groups__list--opened': categoriesIsOpened }" v-on-click-outside="onClickOutsideHandler">
           <div class="faq-groups__item" v-for="group of 2">
             <div class="faq-groups__title">Title</div>
             <div class="faq__list">
@@ -36,6 +55,7 @@ const currentFaq = reactive({
           <div class="faq-card__content">
             <p>Краткое описание... пользователю инструментов и настроек для управления своей цифровой приватностью, этот сервис обеспечивает непрерывную защиту персональных данных и предотвращает их несанкционированное использование или распространение</p>
             <img src="@/assets/img/faq.jpg" alt="">
+            <p>Краткое описание... пользователю инструментов и настроек для управления своей цифровой приватностью, этот сервис обеспечивает непрерывную защиту персональных данных и предотвращает их несанкционированное использование или распространение</p>
           </div>
         </div>
       </div>
@@ -156,6 +176,33 @@ const currentFaq = reactive({
     line-height: 160%;
     text-align: right;
     max-width: 200px;
+  }
+}
+
+@media screen and (max-width: $laptop) {
+  .faq {
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .faq-groups__list {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(22, 22, 25, 0.92);
+    z-index: 6;
+    border-radius: 0;
+    padding: 20px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    &--opened {
+      display: flex;
+    }
+
   }
 }
 </style>

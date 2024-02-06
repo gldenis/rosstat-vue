@@ -1,14 +1,13 @@
 <script setup>
-
 import AdvantagesList from '@/components/AdvantagesList.vue'
-import SectionRemove from '@/components/SectionRemove.vue'
 import SectionProtect from '@/components/SectionProtect.vue'
+import SectionSliders from '@/components/SectionSliders.vue'
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
-      <div class="hero">
+      <div class="hero page-monitoring__hero">
         <div class="hero__main">
           <h1 class="title hero__title">Ваша безопасность
             всегда с вами</h1>
@@ -19,14 +18,14 @@ import SectionProtect from '@/components/SectionProtect.vue'
         </div>
       </div>
       <AdvantagesList class="page-monitoring__advantages"/>
-      <SectionRemove class="page-monitoring__remove"/>
+      <SectionSliders class="page-monitoring__remove"/>
       <SectionProtect class="page-monitoring__protection" />
     </div>
   </main>
 </template>
 
 <style scoped lang="scss">
-.page__content {
+.page-content {
   padding-top: 0;
 }
 
@@ -55,15 +54,34 @@ import SectionProtect from '@/components/SectionProtect.vue'
     height: 240px;
   }
 }
-
+.hero__main {
+  padding: 32px 0;
+}
 @media screen and (max-width: $desktop) {
-  .page__content {
+  .page-content {
     padding-top: var(--header-height);
   }
 }
 
 @media screen and (max-width: $tablet) {
   .hero__logo {
+    img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .page-monitoring__advantages {
+    padding: 20px;
+  }
+  .hero__logo {
+    padding: 0;
+    margin-left: auto;
+    margin-bottom: -100px;
+    margin-top: 60px;
+
     img {
       width: 160px;
       height: 160px;

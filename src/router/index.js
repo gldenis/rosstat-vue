@@ -47,7 +47,12 @@ const router = createRouter({
     {
       path: '/support',
       name: 'support',
-      component: () => import('@/pages/support.vue')
+      component: () => import('@/pages/support/index.vue')
+    },
+    {
+      path: '/support-ticket',
+      name: 'support-ticket',
+      component: () => import('@/pages/support/item.vue')
     },
     {
       path: '/monitoring',
@@ -58,6 +63,16 @@ const router = createRouter({
       path: '/buy',
       name: 'buy',
       component: () => import('@/pages/buy.vue')
+    },
+    {
+      path: '/payment',
+      name: 'payment',
+      component: () => import('@/pages/payment/index.vue')
+    },
+    {
+      path: '/payment/:slug',
+      name: 'payment-item',
+      component: () => import('@/pages/payment/item.vue')
     }
   ]
 })

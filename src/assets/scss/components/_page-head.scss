@@ -3,13 +3,20 @@
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+
+    &--column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+    }
 }
 
 @media screen and (max-width: $tablet){
     .page-head {
         flex-direction: column;
-        align-items: center;
         gap: 40px;
-        text-align: center;
+        align-items: flex-start;
     }
 }

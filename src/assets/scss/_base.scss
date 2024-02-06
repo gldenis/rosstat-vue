@@ -37,9 +37,15 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 32px;
+
+    &--centered-x {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-.page__content {
+.page-content {
     flex-grow: 1;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -48,13 +54,13 @@
 
 
 @media screen and (max-width: $desktop) {
-    .page__content {
+    .page-content {
         padding-top: calc(var(--header-height) + 60px);
     }
 }
 
 @media screen and (max-width: $mobile) {
-    .page__content {
+    .page-content {
         padding-top: calc(var(--header-height) + 32px);
     }
 }

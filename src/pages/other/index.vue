@@ -33,8 +33,8 @@ const checkContact = async () => {
 </script>
 
 <template>
-  <main class="page__content">
-    <div class="container">
+  <main class="page-content">
+    <div class="container container--centered-x">
         <h1 class="title">Проверить контакт</h1>
         <p class="subtitle">Из-за недавнего инцидента с Твиттером, есть риск, что ваши данные могут быть использованы в корыстных целях. Наш антивирус выпустил обновление, которое защищает вас от подобного</p>
         <div v-if="fetchingStarted" class="email-form__progress">
@@ -50,18 +50,6 @@ const checkContact = async () => {
 </template>
 
 <style scoped lang="scss">
-.row {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-.page__content {
-  .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
 
 .subtitle {
   margin-top: 40px;

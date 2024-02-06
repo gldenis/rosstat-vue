@@ -24,7 +24,7 @@ const toggleSubject = (subject, lesson) => {
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
       <div class="hero">
         <div class="hero__main">

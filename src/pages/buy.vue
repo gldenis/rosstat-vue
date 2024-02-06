@@ -1,13 +1,12 @@
 <script setup>
 
-import IconCourseBanner from '@/components/icons/IconCourseBanner.vue'
 import IconBuyChecks from '@/components/icons/IconBuyChecks.vue'
-import SectionRemove from '@/components/SectionRemove.vue'
 import SectionProtect from '@/components/SectionProtect.vue'
+import SectionSliders from '@/components/SectionSliders.vue'
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
       <h1 class="title">Проверки</h1>
       <div class="banner">
@@ -28,12 +27,14 @@ import SectionProtect from '@/components/SectionProtect.vue'
                 <span class="banner-buy__price-value">180 ₽</span>
               </div>
             </div>
-            <input type="text" class="banner-buy__input" value="2">
           </div>
-          <button class="btn btn--accent">Купить еще</button>
+          <div class="banner__actions">
+            <input type="text" class="banner-buy__input" value="2">
+            <RouterLink to="/payment" class="btn btn--accent">Купить еще</RouterLink>
+          </div>
         </div>
       </div>
-      <SectionRemove class="page-buy__remove"/>
+      <SectionSliders class="page-buy__remove"/>
       <SectionProtect class="page-buy__protection" />
     </div>
   </main>
@@ -114,4 +115,51 @@ import SectionProtect from '@/components/SectionProtect.vue'
     }
   }
 }
+
+.banner__actions {
+  display: flex;
+  gap: 16px;
+}
+
+@media screen and (max-width: $laptop) {
+  .banner {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: $phablet) {
+  .banner__right {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .banner {
+    align-items: flex-start;
+
+    &__right {
+      margin-left: 64px;
+      align-items: flex-start;
+    }
+
+    &-buy__price {
+      text-align: left;
+    }
+
+    &__text {
+      text-align: left;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .banner {
+    &__actions {
+      flex-direction: column;
+    }
+  }
+}
+
 </style>

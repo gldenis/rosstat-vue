@@ -3,25 +3,33 @@
 @import "fonts";
 @import "base";
 
+// UI COMPONENTS
 @import "ui/buttons";
 @import "ui/input";
 @import "ui/title";
 @import "ui/progress-bar";
+
+// GLOBAL COMPONENTS
 @import "burger";
+@import "sidebar";
+
+
+// SHARED COMPONENTS
+@import "components/tile";
+
+
+// PAGE HOME
+
 
 @import "components/auth-form";
-@import "components/tile";
 @import "components/banner";
 
-@import "sidebar";
 @import "components/page-head";
 @import "pages/home/home";
 @import "pages/home/hero";
 @import "pages/home/search-form";
-@import "pages/home/statistic";
 @import "pages/home/remove";
 @import "pages/home/protect";
-@import "step";
 @import "components/advantages";
 
 // Page protection

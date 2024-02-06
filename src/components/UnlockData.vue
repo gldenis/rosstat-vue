@@ -12,7 +12,7 @@ import IconUnlock from '@/components/icons/IconUnlock.vue'
         <div class="unlock__price">Стоимость: 1 проверка</div>
       </div>
     </div>
-    <button class="btn btn--accent unlock__btn">Разблокировать данные</button>
+    <RouterLink to="/payment" class="btn btn--accent unlock__btn">Разблокировать данные</RouterLink>
   </div>
 </template>
 

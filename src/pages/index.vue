@@ -2,35 +2,53 @@
 
 import SectionHero from "@/components/SectionHero.vue";
 import SectionSearch from "@/components/SectionSearch.vue";
-import SectionStatistic from "@/components/SectionStatistic.vue";
-import SectionRemove from "@/components/SectionRemove.vue";
 import SectionProtect from "@/components/SectionProtect.vue";
+import IconExperience from "@/components/icons/statistic/IconExperience.vue";
+import IconChecks from "@/components/icons/statistic/IconChecks.vue";
+import IconService from "@/components/icons/statistic/IconService.vue";
+import IconUserDatabase from "@/components/icons/statistic/IconUserDatabase.vue";
+import SectionSliders from "@/components/SectionSliders.vue";
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content page-home__page-content">
     <div class="container">
-      <SectionHero />
+      <SectionHero class="page-home__hero" />
 
-      <SectionSearch />
+      <SectionSearch class="page-home__search-form" />
 
-      <SectionStatistic />
+      <section class="page-home__statistic">
+        <div class="tiles__list">
+          <div class="tiles__item">
+            <IconUserDatabase class="tiles__icon" width="40" height="40" />
+            <div class="tiles__value">100 032 862</div>
+            <div class="tiles__text">Данных пользователей в базе</div>
+          </div>
+          <div class="tiles__item">
+            <IconService class="tiles__icon" width="40" height="40" />
+            <div class="tiles__value">32</div>
+            <div class="tiles__text">Инструментов для API мониторинга</div>
+          </div>
+          <div class="tiles__item">
+            <IconChecks class="tiles__icon" width="40" height="40" />
+            <div class="tiles__value">31</div>
+            <div class="tiles__text">Человек сегодня проверены</div>
+          </div>
+          <div class="tiles__item">
+            <IconExperience class="tiles__icon" width="40" height="40" />
+            <div class="tiles__value">12</div>
+            <div class="tiles__text">Опыта в сфере поиска и защиты данных</div>
+          </div>
+        </div>
+      </section>
 
-      <SectionRemove />
+      <SectionSliders class="page-home__remove" />
 
-      <SectionProtect />
+      <SectionProtect class="page-home__protection" />
     </div>
   </main>
 </template>
 
 <style scoped lang="scss">
-.page__content {
-  padding-top: 0;
-}
 
-@media screen and (max-width: $desktop) {
-  .page__content {
-    padding-top: var(--header-height);
-  }
-}
 </style>

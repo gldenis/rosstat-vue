@@ -26,7 +26,7 @@ const currentTab = ref('monitoring')
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
       <h1 class="title">Данные обо мне</h1>
       <div class="my-top">

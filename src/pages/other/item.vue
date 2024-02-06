@@ -17,7 +17,7 @@ const toggleRelationList = () => {
 </script>
 
 <template>
-  <main class="page__content">
+  <main class="page-content">
     <div class="container">
       <div class="row">
         <RouterLink to="/other" class="btn btn--again">
