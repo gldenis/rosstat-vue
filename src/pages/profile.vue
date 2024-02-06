@@ -291,6 +291,9 @@ const currentTab = ref('referral')
 
   &__description {
     flex-grow: 1;
+    display: flex;
+    gap:16px;
+    align-items: center;
   }
 }
 
