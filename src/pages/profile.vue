@@ -1,42 +1,20 @@
-<script setup lang="ts">
+<script setup>
 
-import IconFiles from "@/components/icons/IconFiles.vue";
-import IconImage from "@/components/icons/IconImage.vue";
-import IconDownload from "@/components/icons/IconDownload.vue";
-import IconMovies from "@/components/icons/IconMovies.vue";
-import DataBlock from "@/components/DataBlock.vue";
-import { nextTick, ref } from "vue";
-import IconAsk from "@/components/icons/IconAsk.vue";
-import IconMonitoringProtect from "@/components/icons/IconMonitoringProtect.vue";
-import AppSwitch from "@/components/ui/AppSwitch.vue";
-import IconUmbrela from "@/components/icons/IconUmbrela.vue";
-import IconFile from "@/components/icons/IconFile.vue";
-import SectionProtect from "@/components/SectionProtect.vue";
+import IconAsk from '@/components/icons/IconAsk.vue'
+import IconMonitoringProtect from '@/components/icons/IconMonitoringProtect.vue'
+import AppSwitch from '@/components/ui/AppSwitch.vue'
+import { ref } from 'vue'
+import IconPlus from '@/components/icons/IconPlus.vue'
+import SectionProtect from '@/components/SectionProtect.vue'
+import IconFile from '@/components/icons/IconFile.vue'
 
-const showRelations = ref(false)
-const toggleRelationList = () => {
-  showRelations.value = !showRelations.value
-}
+const currentTab = ref('referral')
 
-const monitoringOn = ref(false)
-const currentTab = ref('monitoring')
-
-const monitoringToggle = value => {
-  monitoringOn.value = value
-
-  const auth = true
-  if (!auth) {
-    nextTick(() => {
-      monitoringOn.value = false
-    })
-  }
-}
 </script>
 
 <template>
   <main class="page-content">
     <div class="container">
-      <h1 class="title">Данные обо мне</h1>
       <div class="my-top">
         <div class="user">
           <div class="user__info">
@@ -44,16 +22,16 @@ const monitoringToggle = value => {
             <div class="user__email">okaymaxim@gmail.com</div>
             <div class="user__mode">
               <button class="user__mode-btn"
-                      :class="{ 'user__mode-btn--current': currentTab === 'info' }"
-                      @click="currentTab = 'info'"
+                      :class="{ 'user__mode-btn--current': currentTab === 'settings' }"
+                      @click="currentTab = 'settings'"
               >
-                Информация
+                Настройки
               </button>
               <button class="user__mode-btn"
-                      :class="{ 'user__mode-btn--current': currentTab === 'monitoring' }"
-                      @click="currentTab = 'monitoring'"
+                      :class="{ 'user__mode-btn--current': currentTab === 'referral' }"
+                      @click="currentTab = 'referral'"
               >
-                Мониторинг
+                Рефералка
               </button>
             </div>
           </div>
@@ -77,187 +55,58 @@ const monitoringToggle = value => {
         </div>
       </div>
 
-      <div v-if="currentTab === 'monitoring'" class="monitoring">
-        <div class="banner">
-          <div class="banner__left">
-            <IconUmbrela />
-            <div class="banner__text">
-              <div class="banner__title">Статус:  <span>Отключен</span></div>
-              <div class="banner__description">Все данные пользователя в интернете
-                по электронной почте</div>
-            </div>
+      <div v-if="currentTab === 'referral'" class="page-referral">
+        <div class="referral">
+          <div class="referral__left">
+            <div class="referral__title">7 дней бесплатного мониторинга</div>
+            <div class="referral__subtitle">При регистрации каждого пользователя по реферальной ссылке, вы получите 7 дней бесплатного использования</div>
           </div>
-          <div class="banner__right">
-            <div class="banner-buy">
-              <div class="banner-buy__text">
-                <div class="banner-buy__label">Стоимость за: 2 недели</div>
-                <div class="banner-buy__price">
-                  <span class="banner-buy__price-old">100 ₽</span>
-                  <span class="banner-buy__price-value">180 ₽</span>
-                </div>
-              </div>
+          <div class="referral__right">
+            <div class="referral-add">
+              <input class="form-field__input" type="text" placeholder="Адрес эл. почты" >
+              <button class="btn btn--icon btn--gray">
+                <IconPlus />
+              </button>
             </div>
-            <div class="banner__actions">
-              <input type="text" class="banner-buy__input" value="2">
-              <button class="btn btn--accent">Включить</button>
+            <button class="btn btn--accent">Отправить приглашения</button>
+          </div>
+        </div>
+        <div class="requests-fallback">
+          <div class="requests-fallback__inner">
+            <IconFile />
+            <div class="requests-fallback__text">
+              <div class="requests-fallback__title">Таблица с приглашениями пуста</div>
+              <div class="requests-fallback__description">При регистрации каждого пользователя по реферальной ссылке,<br> вы получите 7 дней бесплатного использования</div>
             </div>
           </div>
         </div>
+        <div class="requests__table">
+          <div class="requests__head">
+            <div class="requests__head-time">Дата и время</div>
+            <div class="requests__head-type">Приглашенные пользователи по реферальной ссылке</div>
 
-        <section class="requests">
-          <h2 class="title title--small">Запросы на ваши данные</h2>
-          <div class="requests-fallback">
-            <div class="requests-fallback__inner">
-              <IconFile />
-              <div class="requests-fallback__text">
-                <div class="requests-fallback__title">Таблица с запросами пуста</div>
-                <div class="requests-fallback__description">Запросы начнут приходить после включения мониторинга</div>
-              </div>
+          </div>
+          <div class="requests__item" v-for="row of 4">
+            <div class="requests__time">23.09.23 | 14:43</div>
+            <div class="requests__description">
+              <img src="@/assets/img/user.jpg" alt="" class="icon" width="40" height="40">
+              georgia.young@example.com
+            </div>
+            <div class="requests__actions">
+              <div v-if="row === 1 || row === 2" class="registered">Зарегистрирован</div>
+              <button v-else class="btn btn--accent btn--small">Отправить снова</button>
             </div>
           </div>
-          <div class="requests__table">
-            <div class="requests__head">
-              <div class="requests__head-time">Дата и время</div>
-              <div class="requests__head-type">Дата и время</div>
-
-            </div>
-            <div class="requests__item" v-for="row of 7">
-              <div class="requests__time">23.09.23 | 14:43</div>
-              <div class="requests__description">Что было проверено</div>
-              <div class="requests__actions">
-                <button class="btn btn--secondary btn--small">Проверить в ответ</button>
-              </div>
-            </div>
-          </div>
-        </section>
-        <SectionProtect class="page-me__protection" />
+        </div>
+        <SectionProtect class="page-profile__section-protection"/>
       </div>
-      <div v-else class="result">
-        <div class="user-section result__info">
-          <div class="user-section__head">
-            <h2 class="user-section__title">Информация</h2>
-            <p class="user-section__meta"><span>Активность не позднее:</span> 8 минут назад</p>
-          </div>
-          <DataBlock title="Ваша ФИО:"
-                     :info="[
-                       { title: 'Константинов' },
-                       { title: 'Константин' },
-                       { title: 'Константинопольский' },
-                     ]">
-            <div class="name-relations">
-              <div class="name-relations__head">
-                <div class="name-relations__title">Связаны с именем (7)</div>
-                <button class="name-relations__btn"
-                        @click="toggleRelationList">
-                  {{ showRelations ? 'Скрыть' : 'Развернуть' }}
-                </button>
-              </div>
-              <div v-show="showRelations" class="name-relations__list">
-                <div class="name-relations__item">Максим</div>
-                <div class="name-relations__item">Okeymaxim</div>
-                <div class="name-relations__item">Макс Березин</div>
-                <div class="name-relations__item">Литар Александра</div>
-                <div class="name-relations__item">березин Максим</div>
-                <div class="name-relations__item">Резникова Александра Сергеевна</div>
-                <div class="name-relations__item">Березин Макси</div>
-              </div>
-            </div>
-          </DataBlock>
-          <DataBlock title="Паспорт:"
-                     :info="[
-                       { title: 'Серия: 42 33' },
-                       { title: 'Номер: 837 281' },
-                     ]"/>
-          <DataBlock title="Телефон:"
-                     :info="[
-                       { title: 'Оператор (Йота): +79990592985' },
-                       { title: 'Оператор (Мегафон): +79990592985' },
-                     ]"/>
-          <DataBlock title="Соц. сети:"
-                     :info="[
-                       { title: 'ID 338920713: @Okeymaxim', icon: 'telegram' },
-                       { title: 'Max: @okeymaxim', icon: 'instagram' }
-                     ]"
-          />
-          <DataBlock title="Посещает:"
-                     :info="[
-                       { title: '@okeymaxim', icon: 'youtube' },
-                       { title: 'Photos Maps' },
-                     ]"
-          />
-          <DataBlock title="Объявлений:"
-                     :info="[ { title: '3 шт.' } ]"
-          />
-        </div>
+      <div v-else class="row">
+        <div class="text">Если у вас есть вопросы, <br>
+          или вы обнаружили ошибку, свяжитесь с нами</div>
 
-        <div class="user-section result__media">
-          <div class="user-section__head">
-            <h2 class="user-section__title">Медиа и документы</h2>
-            <div class="media-category__list">
-              <div class="media-category__item">
-                <IconImage/>
-                5 938
-              </div>
-              <div class="media-category__item">
-                <IconMovies/>
-                349
-              </div>
-              <div class="media-category__item">
-                <IconFiles/>
-                1 293
-              </div>
-            </div>
-          </div>
-          <div class="result-media">
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-1.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-2.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-3.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-4.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-5.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-6.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-7.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-            <div class="result-media__item result-media__item--blur">
-              <img src="@/assets/img/content/img-8.jpg" loading="lazy" alt="" width="156" height="100">
-            </div>
-          </div>
-          <div class="user-section__bottom">
-            <button class="btn btn--primary result-media__btn">
-              <IconDownload/>
-              Скачать данные (3.42 гб)
-            </button>
-          </div>
-        </div>
-
-        <div class="user-section result__place">
-          <div class="user-section__head">
-            <h2 class="user-section__title">Передвижения</h2>
-          </div>
-          <DataBlock title="Страна:"
-                     :info="[
-                       { title: 'RU' },
-                       { title: 'Страна: Россия' },
-                       { title: 'Приморский край' },
-                     ]"/>
-          <DataBlock title="Возможные адреса:"
-                     :info="[
-                       { title: 'Страна: Россия' },
-                       { title: 'Краснодарский край' },
-                       { title: 'Краснодар' },
-                     ]"/>
+        <div class="row__right">
+          <button class="btn btn--gray">Сменить Эл. почту</button>
+          <button class="btn btn--gray">Сменить пароль</button>
         </div>
       </div>
     </div>
@@ -265,6 +114,118 @@ const monitoringToggle = value => {
 </template>
 
 <style scoped lang="scss">
+.registered {
+  border-radius: 12px;
+  padding: 4px 16px;
+  width: 162px;
+  height: 28px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 132%;
+  color: #fff;
+  background: rgba(43, 43, 43, 0.1);
+}
+
+.icon {
+  border-radius: 50%;
+}
+
+.page-profile__section-protection {
+  margin-top: 60px;
+}
+.referral {
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  &:before {
+    content: '';
+    filter: blur(4px);
+    background-color: rgb(217, 217, 217);
+    background-image: url("@/assets/img/referral.png") ;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 468px;
+    padding-bottom: 16px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 132%;
+    color: #fff;
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: rgba(255,255,255, 0.8);
+  }
+
+  &__right {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  &-add {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+}
+.page-referral {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255, 0.2);
+  border-bottom: 1px solid rgba(255,255,255, 0.2);
+  margin-top: 60px;
+
+  .text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+  }
+
+  &__right {
+    display: flex;
+    flex-shrink: 0;
+    gap: 20px;
+  }
+}
+
 .requests {
   margin-top: 60px;
 
@@ -830,6 +791,7 @@ const monitoringToggle = value => {
   }
 
 }
+
 @media screen and (max-width: $phablet) {
   .requests {
     &__item {
@@ -953,6 +915,18 @@ const monitoringToggle = value => {
       .btn {
         width: 100%;
       }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .referral {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__right {
+      align-items: center;
     }
   }
 }
