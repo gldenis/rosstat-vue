@@ -1,0 +1,47 @@
+.tiles {
+    &__section-title {
+        margin-bottom: 20px;
+    }
+}
+
+.page-protection {
+    &__page-content {
+        padding-top: 0;
+    }
+    &__banner {
+        margin-top: 40px;
+    }
+    &__hero-main {
+        padding: 32px 0;
+    }
+}
+
+@media screen and (max-width: $desktop) {
+    .page-protection__page-content {
+        padding-top: var(--header-height);
+    }
+}
+
+@media screen and (max-width: $phablet) {
+    .page-protection__hero-logo {
+        padding: 0;
+        padding-top: 30px;
+        margin-left: auto;
+        margin-bottom: -110px;
+    }
+
+    .tiles {
+        &__section-title {
+            margin-bottom: 32px;
+        }
+    }
+
+    // TODO protection page banner
+    .banner__left {
+        gap: 24px;
+    }
+    .banner__right {
+        display: flex;
+        justify-content: space-between;
+    }
+}

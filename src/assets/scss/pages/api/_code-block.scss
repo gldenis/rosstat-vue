@@ -1,0 +1,36 @@
+.code-block {
+    max-width: 330px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+
+    pre, code {
+        white-space: pre-wrap;
+    }
+
+    &__btn {
+        background: rgb(48, 48, 52);
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+
+        &:hover {
+            background: rgba(48, 48, 52, 0.92);
+        }
+
+        &--copied {
+            color: rgba(21, 153, 90, 0.92);
+        }
+    }
+}
+
+pre code.hljs {
+    white-space: pre-wrap;
+    padding: 20px;
+    padding: 20px 20px 84px;
+}

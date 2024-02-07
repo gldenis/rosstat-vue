@@ -1,0 +1,53 @@
+.page-buy {
+
+    &__banner {
+        margin-top: 60px;
+    }
+
+    &__remove {
+        margin-top: 60px;
+    }
+
+    &__protection {
+        margin-top: 60px;
+    }
+}
+
+.banner__actions {
+    display: flex;
+    gap: 16px;
+}
+
+@media screen and (max-width: $phablet) {
+    .banner__right {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .banner {
+        align-items: flex-start;
+
+        &__right {
+            margin-left: 64px;
+            align-items: flex-start;
+        }
+
+        &-buy__price {
+            text-align: left;
+        }
+
+        &__text {
+            text-align: left;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .banner {
+        &__actions {
+            flex-direction: column;
+        }
+    }
+}

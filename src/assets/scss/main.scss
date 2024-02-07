@@ -16,23 +16,76 @@
 
 // SHARED COMPONENTS
 @import "components/tile";
+@import "components/page-head";
+
+@import "pages/home/remove";
+@import "pages/home/protect";
+
+@import "components/advantages";
+@import "components/banner";
+
+
+
 
 
 // PAGE HOME
-
-
-@import "components/auth-form";
-@import "components/banner";
-
-@import "components/page-head";
-@import "pages/home/home";
 @import "pages/home/hero";
 @import "pages/home/search-form";
-@import "pages/home/remove";
-@import "pages/home/protect";
-@import "components/advantages";
+@import "pages/home/home";
 
-// Page protection
 
-@import "components/lessons";
-@import "components/lesson-subject";
+// PAGE AUTH
+@import "components/auth-form";
+@import "pages/auth/auth";
+
+
+// PAGE PROTECTION
+@import "pages/protection/hero";
+@import "pages/protection/course";
+@import "pages/protection/lessons";
+@import "pages/protection/lesson-subject";
+@import "pages/protection/protection";
+
+
+// PAGE PROFILE
+@import "pages/profile/referral";
+@import "pages/profile/requests";
+@import "pages/profile/monitoring-banner";
+@import "pages/profile/profile";
+
+
+// PAGE MONITORING
+@import "pages/monitoring/monitoring";
+
+
+// PAGE ME
+@import "pages/me/banner";
+@import "pages/me/me";
+
+
+// PAGE BUY
+@import "pages/buy/buy";
+
+
+// PAGE API
+@import "pages/api/code-block";
+@import "pages/api/api";
+
+
+// PAGE SUPPORT
+@import "pages/support/support-types";
+@import "pages/support/support";
+
+
+// PAGE PAYMENT
+@import "pages/payment/payment-item";
+@import "pages/payment/payment";
+
+
+// PAGE OTHER
+@import "pages/other/other";
+@import "pages/other/other-item";
+@import "pages/other/other";
+
+
+

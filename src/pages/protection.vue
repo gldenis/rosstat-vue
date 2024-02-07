@@ -24,20 +24,20 @@ const toggleSubject = (subject, lesson) => {
 </script>
 
 <template>
-  <main class="page-content">
+  <main class="page-content page-protection__page-content">
     <div class="container">
       <div class="hero">
-        <div class="hero__main">
+        <div class="hero__main page-protection__hero-main">
           <h1 class="title hero__title">Ваша безопасность
             всегда с вами</h1>
           <p class="hero__slogan">Из-за недавнего инцидента с Твиттером, есть риск, что ваши данные могут быть использованы в корыстных целях. Наш антивирус выпустил обновление, которое защищает вас от подобного</p>
         </div>
-        <div class="hero__logo">
-          <img src="@/assets/img/protect.png" alt="">
+        <div class="hero__logo page-protection__hero-logo">
+          <img src="@/assets/img/protect.png" alt="" width="240" height="240">
         </div>
       </div>
       <div class="tiles">
-        <h2 class="title title--xs tiles__section-title">Самый полный курс по защите от мошенничества
+        <h2 class="title title--xs tiles__section-title">Самый полный курс по защите от мошенничества <br>
           и вымогателей в интернете</h2>
         <div class="tiles__list">
           <div class="tiles__item">
@@ -109,7 +109,7 @@ const toggleSubject = (subject, lesson) => {
             </div>
             <div class="course-info__item course-info__item--col">
               Скачать демо
-              <div>
+              <div class="course-info__duration">
                 <IconDownload />
                 <span>10:00</span>
               </div>
@@ -117,7 +117,7 @@ const toggleSubject = (subject, lesson) => {
           </div>
           <div class="course-price">
             <div class="course-price__value">
-              47:31
+              47 : 31
             </div>
             <div class="course-price__discount">
               <div>Скидка</div>
@@ -126,7 +126,7 @@ const toggleSubject = (subject, lesson) => {
           </div>
         </div>
       </div>
-      <div class="banner">
+      <div class="banner page-protection__banner">
         <div class="banner__left">
           <IconCourseBanner />
           <div class="banner__text">
@@ -147,161 +147,5 @@ const toggleSubject = (subject, lesson) => {
 </template>
 
 <style scoped lang="scss">
-.tiles {
-  &__section-title {
-    margin-bottom: 20px;
-  }
-}
-.page__content {
-  padding-top: 0;
-}
-.course {
-  margin-top: 60px;
-}
-
-.course-order {
-  margin-top: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.course-meta {
-  display: flex;
-  justify-content: space-between;
-}
-
-.course-price {
-  display: flex;
-  align-items: stretch;
-
-  &__value {
-    box-sizing: border-box;
-    border-radius: 4px 0px 0px 4px;
-    background: linear-gradient(90.00deg, rgba(255, 71, 46, 0.16),rgba(255, 71, 46, 0.32) 100%);
-    padding: 10px 20px;
-    color: rgb(255, 255, 255);
-    font-size: 45px;
-    font-weight: 700;
-    line-height: 52px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-
-    &:after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      display: block;
-      content: '';
-      height: 4px;
-      background: #fff;
-    }
-  }
-
-  &__discount {
-    border-radius: 0px 4px 4px 0px;
-    background: rgb(255, 71, 46);
-    color: rgb(246, 248, 250);
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 152%;
-    text-transform: uppercase;
-    padding: 10px 20px;
-
-    span {
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 132%;
-    }
-  }
-}
-
-.course-info {
-  display: flex;
-  gap: 8px;
-
-  &__item {
-    padding: 10px 20px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.16);
-    color: rgb(246, 248, 250);
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 152%;
-    text-transform: uppercase;
-    display: flex;
-    min-height: 80px;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-
-    &--col {
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    span {
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 132%;
-    }
-  }
-}
-
-.hero__logo {
-  padding-top: 60px;
-  padding-right: 0;
-  padding-left: 30px;
-
-  img {
-    width: 240px;
-    height: 240px;
-  }
-}
-
-@media screen and (max-width: $desktop) {
-  .page__content {
-    padding-top: var(--header-height);
-  }
-}
-
-@media screen and (max-width: $tablet) {
-  .hero__logo {
-    img {
-      width: 160px;
-      height: 160px;
-    }
-  }
-}
-
-@media screen and (max-width: $phablet) {
-  .course-meta {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .course-info {
-    &__item {
-      width: calc((100% - 8px) / 2);
-    }
-  }
-
-  .course-price {
-    width: 100%;
-
-    &__value {
-      width: 67%;
-    }
-
-    &__discount {
-      width: 33%;
-      text-align: center;
-    }
-  }
-}
 
 </style>

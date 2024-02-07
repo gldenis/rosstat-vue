@@ -11,7 +11,7 @@ import IconMe from '@/components/icons/IconMe.vue'
       Регистрация
     </RouterLink>
     <RouterLink to="/login" class="auth-switch__item">
-      <IconMe width="20" height="20" />
+      <IconMe width="24" height="24" />
       Вход
     </RouterLink>
   </div>
@@ -34,6 +34,9 @@ import IconMe from '@/components/icons/IconMe.vue'
     padding: 8px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 146%;
 
     &.router-link-exact-active {
       background: #fff;

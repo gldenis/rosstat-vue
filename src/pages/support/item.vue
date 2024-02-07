@@ -32,34 +32,5 @@ import SupportForm from '@/components/SupportForm.vue'
 </template>
 
 <style scoped lang="scss">
-.support-types {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 6px;
-  margin: 40px auto 80px;
 
-  &__item {
-    span {
-      height: 100%;
-      min-height: 40px;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.2);
-      border: 1px solid transparent;
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 132%;
-      text-align: center;
-    }
-
-    input:checked + span {
-      border: 1px solid rgba(255, 255, 255, 0.92);
-    }
-  }
-}
 </style>

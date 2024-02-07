@@ -35,8 +35,11 @@ const checkContact = async () => {
 <template>
   <main class="page-content">
     <div class="container container--centered-x">
+      <div class="page-head--column">
         <h1 class="title">Проверить контакт</h1>
         <p class="subtitle">Из-за недавнего инцидента с Твиттером, есть риск, что ваши данные могут быть использованы в корыстных целях. Наш антивирус выпустил обновление, которое защищает вас от подобного</p>
+      </div>
+
         <div v-if="fetchingStarted" class="email-form__progress">
           <ProgressBar :value="progress"/>
         </div>
@@ -51,69 +54,4 @@ const checkContact = async () => {
 
 <style scoped lang="scss">
 
-.subtitle {
-  margin-top: 40px;
-  text-align: center;
-  max-width: 680px;
-}
-
-.email-form {
-  margin-top: 60px;
-  display: flex;
-  max-width: 440px;
-  width: 100%;
-  flex-direction: column;
-  gap: 40px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.60);
-  padding: 40px;
-
-  &__icon {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  &__input {
-    display: flex;
-    height: 52px;
-    padding: 10px 16px;
-    align-items: center;
-    gap: 10px;
-    overflow: hidden;
-    color: #9DA2AD;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 132%;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  &__btn {
-    border-radius: 8px;
-    background: #4146CF;
-    border: 2px solid #4146CF;
-  }
-
-  &__progress {
-    max-width: 440px;
-    width: 100%;
-    padding: 20px;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.60);
-    margin-top: 60px;
-  }
-}
-
-@media screen and (max-width: $desktop){
-  .title {
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: $mobile){
-  .email-form {
-    padding: 40px 20px;
-  }
-}
 </style>

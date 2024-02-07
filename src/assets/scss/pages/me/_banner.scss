@@ -1,0 +1,151 @@
+.banner {
+    &__title {
+        span {
+            color: #ff472e;
+        }
+    }
+
+    &__description {
+        font-size: 14px;
+    }
+
+    &__actions {
+        display: flex;
+        gap: 24px;
+    }
+}
+
+.banner-buy {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    &__input {
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 132%;
+        text-align: center;
+        border: 2px solid #d99b53;
+        border-radius: 4px;
+        background: rgba(18, 19, 20, 0.68);
+        padding: 10px 8px;
+        width: 100px;
+        height: 52px;
+        outline: none;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    &__label {
+        color: rgb(157, 162, 173);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 140%;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__price {
+        text-align: right;
+
+        &-value {
+            color: rgb(246, 248, 250);
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 132%;
+        }
+
+        &-old {
+            color: rgb(157, 162, 173);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 146%;
+            text-decoration-line: line-through;
+            margin-right: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: $laptop) {
+    .banner {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .banner {
+        align-items: flex-start;
+
+        &__left {
+            gap: 16px;
+
+            svg {
+                flex-shrink: 0;
+            }
+        }
+
+        &__right {
+            flex-direction: column;
+            margin-left: 64px;
+            align-items: flex-start;
+        }
+
+        &__text {
+            align-items: flex-start;
+        }
+
+        &-buy {
+            &__price {
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-xs) {
+    .banner {
+        align-items: center;
+
+        &__left {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        &__text {
+            align-items: center;
+            text-align: center;
+        }
+
+        &__actions {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__right {
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &-buy {
+            align-items: center;
+
+            &__text {
+                text-align: center;
+            }
+
+            &__price {
+                text-align: center;
+            }
+        }
+    }
+}

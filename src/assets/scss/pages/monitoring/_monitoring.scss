@@ -1,0 +1,21 @@
+.page-monitoring {
+    &__advantages {
+        padding: 40px;
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    &__remove {
+        margin-top: 80px;
+    }
+
+    &__protection {
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: $mobile) {
+    .page-monitoring__advantages {
+        padding: 20px;
+    }
+}

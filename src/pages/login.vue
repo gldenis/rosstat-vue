@@ -10,7 +10,7 @@ const currentForm = ref('login')
 <template>
   <main class="page-content">
     <div class="container">
-      <div class="page-head">
+      <div class="page-head page-auth__page-head">
         <h1 class="title">Вход и регистрация</h1>
         <AuthViewSwitcher />
       </div>
@@ -21,9 +21,5 @@ const currentForm = ref('login')
 </template>
 
 <style scoped lang="scss">
-@media screen and (max-width: $tablet){
-  .title {
-    text-align: center;
-  }
-}
+
 </style>
