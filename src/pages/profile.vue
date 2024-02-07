@@ -7,6 +7,7 @@ import { ref } from 'vue'
 import IconPlus from '@/components/icons/IconPlus.vue'
 import SectionProtect from '@/components/SectionProtect.vue'
 import IconFile from '@/components/icons/IconFile.vue'
+import IconBonusChecks from '@/components/icons/IconBonusChecks.vue'
 
 const currentTab = ref('referral')
 
@@ -93,7 +94,10 @@ const currentTab = ref('referral')
               georgia.young@example.com
             </div>
             <div class="requests__actions">
-              <div v-if="row === 1 || row === 2" class="registered__bonus">3</div>
+              <div v-if="row === 1 || row === 2" class="registered__bonus">
+                <IconBonusChecks />
+                +3
+              </div>
               <div v-if="row === 1 || row === 2" class="registered">
                 Зарегистрирован
               </div>

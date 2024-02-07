@@ -8,6 +8,23 @@
     line-height: 132%;
     color: #fff;
     background: rgba(43, 43, 43, 0.1);
+
+    &__bonus {
+
+        border-radius: 12px;
+        width: 56px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 132%;
+        color: #fff;
+        gap: 4px;
+        border: 2px solid red;
+        display: none;
+    }
 }
 
 .icon {
