@@ -139,7 +139,7 @@ const toggleSubject = (subject, lesson) => {
             <div class="banner-price__old">100 000 ₽</div>
             <div class="banner-price__value">50 000 ₽</div>
           </div>
-          <button class="btn btn--accent">{{ width > 800 ? 'Выбрать способ оплаты' : 'К оплате' }}</button>
+          <RouterLink to="/payment" class="btn btn--accent">{{ width > 800 ? 'Выбрать способ оплаты' : 'К оплате' }}</RouterLink>
         </div>
       </div>
     </div>

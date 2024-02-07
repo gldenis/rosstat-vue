@@ -97,9 +97,9 @@ const monitoringToggle = value => {
                 </div>
               </div>
             </div>
-            <div class="banner__actions">
+            <div class="banner__actions page-me__banner-actions">
               <input type="text" class="banner-buy__input" value="2">
-              <button class="btn btn--accent">Включить</button>
+              <RouterLink to="/payment" class="btn btn--accent">Включить</RouterLink>
             </div>
           </div>
         </div>
