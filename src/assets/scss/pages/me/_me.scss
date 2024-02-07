@@ -85,6 +85,12 @@
     }
 }
 
+@media screen and (max-width: $mobile) {
+    .my-top {
+        gap: 32px;
+    }
+}
+
 @media screen and (max-width: $mobile) and (min-width: $mobile-xs) {
     .user {
         background: none;
@@ -125,7 +131,7 @@
             line-height: 132%;
             color: #606268;
             border-radius: 20px;
-            padding: 10px 8px;
+            padding: 10px 4px;
 
             &--current {
                 color: #fff;
