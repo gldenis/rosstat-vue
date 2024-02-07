@@ -85,7 +85,56 @@
     }
 }
 
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $mobile) and (min-width: $mobile-xs) {
+    .user {
+        background: none;
+        padding: 0;
+        flex-direction: row-reverse;
+
+        &__info {
+            width: calc(100% - 136px);
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        &__name {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 132%;
+            color: #fff;
+        }
+
+        &__email {
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 132%;
+            color: #fff;
+        }
+
+        &__mode {
+            margin-top: 15px;
+        }
+        &__mode-btn {
+            width: 115px;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 132%;
+            color: #606268;
+            border-radius: 20px;
+            padding: 10px 8px;
+
+            &--current {
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-xs) {
     .user {
         flex-direction: column-reverse;
         align-items: center;
