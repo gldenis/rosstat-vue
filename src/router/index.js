@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('@/pages/other/index.vue'),
     },
     {
+      path: '/other-auth',
+      name: 'other-auth',
+      component: () => import('@/pages/other/other-auth.vue'),
+    },
+    {
       path: '/other/:id',
       name: 'other-result',
       component: () => import('@/pages/other/item.vue'),
