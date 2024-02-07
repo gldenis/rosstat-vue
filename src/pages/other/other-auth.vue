@@ -30,7 +30,7 @@ import IconPlus from '@/components/icons/IconPlus.vue'
           <div class="user__column">
             <div class="user__data">
               <div class="user__pic">
-                <img  src="@/assets/img/user.jpg" alt="" width="40" height="40">
+                <img  src="@/assets/img/user.jpg" alt="" width="40" height="40" loading="lazy">
               </div>
               <div class="user__contact">jessica.hanson@example.com</div>
             </div>

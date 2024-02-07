@@ -33,7 +33,7 @@ const toggleSubject = (subject, lesson) => {
           <p class="hero__slogan">Из-за недавнего инцидента с Твиттером, есть риск, что ваши данные могут быть использованы в корыстных целях. Наш антивирус выпустил обновление, которое защищает вас от подобного</p>
         </div>
         <div class="hero__logo page-protection__hero-logo">
-          <img src="@/assets/img/protect.png" alt="" width="240" height="240">
+          <img src="@/assets/img/protect.png" alt="" width="240" height="240" loading="lazy">
         </div>
       </div>
       <div class="tiles">
@@ -88,7 +88,7 @@ const toggleSubject = (subject, lesson) => {
                     </p>
                   </div>
                   <div class="lesson-subject__media">
-                    <img src="@/assets/img/subject-media.jpeg" alt="">
+                    <img src="@/assets/img/subject-media.jpeg" alt="" width="240" height="135" loading="lazy">
                   </div>
                 </div>
               </div>

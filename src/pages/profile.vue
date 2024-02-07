@@ -47,7 +47,7 @@ const monitoringToggle = value => {
               </button>
             </div>
           </div>
-          <img class="user__pic" src="@/assets/img/user.jpg" alt="">
+          <img class="user__pic" src="@/assets/img/user.jpg" alt="" width="116" height="116" loading="lazy">
         </div>
         <div class="monitoring-banner">
           <IconMonitoringProtect/>

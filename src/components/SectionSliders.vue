@@ -25,7 +25,7 @@ const pagination = ref(null)
       >
         <SwiperSlide >
           <div class="remove-section__slide">
-            <img class="remove-section__image" src="@/assets/img/slide-1.jpg" alt="">
+            <img class="remove-section__image" src="@/assets/img/slide-1.jpg" alt="" width="561" height="401" loading="lazy">
             <div class="remove-section__content">
               <div class="remove-section__title">Удаление вашей информации из интернета и приложений</div>
               <div class="remove-section__description">Удаление вашей информации из интернета и приложений</div>
@@ -35,7 +35,7 @@ const pagination = ref(null)
         </SwiperSlide>
         <SwiperSlide>
           <div class="remove-section__slide">
-            <img class="remove-section__image" src="@/assets/img/slide-2.jpg" alt="">
+            <img class="remove-section__image" src="@/assets/img/slide-2.jpg" alt="" width="561" height="401" loading="lazy">
             <div class="remove-section__content">
               <div class="remove-section__title">2 Удаление вашей информации из интернета и приложений</div>
               <div class="remove-section__description">Удаление вашей информации из интернета и приложений</div>
@@ -45,7 +45,7 @@ const pagination = ref(null)
         </SwiperSlide>
         <SwiperSlide>
           <div class="remove-section__slide">
-            <img class="remove-section__image" src="@/assets/img/slide-3.jpg" alt="">
+            <img class="remove-section__image" src="@/assets/img/slide-3.jpg" alt="" width="561" height="401" loading="lazy">
             <div class="remove-section__content">
               <div class="remove-section__title">3 Удаление вашей информации из интернета и приложений</div>
               <div class="remove-section__description">Удаление вашей информации из интернета и приложений</div>
@@ -55,7 +55,7 @@ const pagination = ref(null)
         </SwiperSlide>
         <SwiperSlide>
           <div class="remove-section__slide">
-            <img class="remove-section__image" src="@/assets/img/slide-4.jpg" alt="">
+            <img class="remove-section__image" src="@/assets/img/slide-4.jpg" alt="" width="561" height="401" loading="lazy">
             <div class="remove-section__content">
               <div class="remove-section__title">4 Удаление вашей информации из интернета и приложений</div>
               <div class="remove-section__description">Удаление вашей информации из интернета и приложений</div>

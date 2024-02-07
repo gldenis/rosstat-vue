@@ -5,7 +5,7 @@
 <template>
   <div class="protect-section page__protect">
     <div class="protect-section__img">
-      <img src="@/assets/img/protect.png" alt="" width="200" height="200">
+      <img src="@/assets/img/protect.png" alt="" width="200" height="200" loading="lazy">
     </div>
     <div class="protect-section__content">
       <div class="protect-section__content-wrapper">

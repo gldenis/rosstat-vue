@@ -9,7 +9,7 @@
       <p class="hero__slogan">Единый центр персональной идентификации и цифровой защиты личности.</p>
     </div>
     <div class="hero__logo">
-      <img src="@/assets/img/logo.svg" alt="">
+      <img src="@/assets/img/logo.svg" alt="" width="240" height="240" loading="lazy">
     </div>
   </section>
 </template>
