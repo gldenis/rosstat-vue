@@ -7,7 +7,7 @@ const emailChanged = ref(false)
 const formSubmit = () => {
   emailChanged.value = true
 }
-const letterSent = ref(false)
+const letterArrived = ref(false)
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const letterSent = ref(false)
     </div>
   </div>
 
-  <form v-else-if="letterSent" class="auth-form" @submit.prevent="formSubmit">
+  <form v-else-if="letterArrived" class="auth-form" @submit.prevent="formSubmit">
     <IconMail class="auth-form__icon" width="48" height="48" />
     <div class="auth-form__fields-list">
       <input type="text" class="form-field__input" placeholder="Новый email">
@@ -36,7 +36,7 @@ const letterSent = ref(false)
       <AppInputCode :length="4"/>
     </div>
     <div class="auth-form__buttons">
-      <button class="btn btn--primary">Отправить</button>
+      <button class="btn btn--primary" @click="letterArrived = true">Отправить</button>
     </div>
   </form>
 </template>
