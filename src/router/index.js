@@ -20,6 +20,16 @@ const router = createRouter({
       component: () => import('@/pages/registration.vue')
     },
     {
+      path: '/change-password',
+      name: 'change-password',
+      component: () => import('@/pages/change-password.vue')
+    },
+    {
+      path: '/change-email',
+      name: 'change-email',
+      component: () => import('@/pages/change-email.vue')
+    },
+    {
       path: '/me',
       name: 'me',
       component: () => import('@/pages/me.vue')

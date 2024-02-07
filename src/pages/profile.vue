@@ -3,14 +3,25 @@
 import IconAsk from '@/components/icons/IconAsk.vue'
 import IconMonitoringProtect from '@/components/icons/IconMonitoringProtect.vue'
 import AppSwitch from '@/components/ui/AppSwitch.vue'
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import IconPlus from '@/components/icons/IconPlus.vue'
 import SectionProtect from '@/components/SectionProtect.vue'
 import IconFile from '@/components/icons/IconFile.vue'
 import IconBonusChecks from '@/components/icons/IconBonusChecks.vue'
 
 const currentTab = ref('referral')
+const monitoringOn = ref(false)
 
+const monitoringToggle = value => {
+  monitoringOn.value = value
+
+  const auth = true
+  if (!auth) {
+    nextTick(() => {
+      monitoringOn.value = false
+    })
+  }
+}
 </script>
 
 <template>
@@ -47,7 +58,6 @@ const currentTab = ref('referral')
               <AppSwitch :checked="monitoringOn"
                          @toggle="monitoringToggle"
                          :label="monitoringOn ? 'Включен' : 'Выключено'"/>
-              <!--              <div class="monitoring__switch">Выключено</div>-->
               <div class="monitoring-banner__info">
                 <IconAsk/>
               </div>
@@ -112,8 +122,8 @@ const currentTab = ref('referral')
           или вы обнаружили ошибку, свяжитесь с нами</div>
 
         <div class="row__right">
-          <button class="btn btn--gray">Сменить Эл. почту</button>
-          <button class="btn btn--gray">Сменить пароль</button>
+          <RouterLink to="/change-email" class="btn btn--gray">Сменить Эл. почту</RouterLink>
+          <RouterLink to="/change-password" class="btn btn--gray">Сменить пароль</RouterLink>
         </div>
       </div>
     </div>
