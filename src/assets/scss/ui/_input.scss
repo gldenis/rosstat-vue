@@ -14,4 +14,12 @@
             color: rgb(157, 162, 173);
         }
     }
+
+    &__error {
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 132%;
+        color: #ff472e;
+        margin-top: 4px;
+    }
 }
