@@ -4,7 +4,7 @@
     padding: 20px;
     display: flex;
     height: 92px;
-    gap: 32px;
+    gap: 20px;
     align-items: center;
 
     &__field {
@@ -41,7 +41,7 @@
         background: rgba(0, 0, 0, 0.08);
         padding: 10px 16px;
         outline: none;
-        height: 100%;
+        height: 52px;
         width: 100%;
 
         &::placeholder {
@@ -60,6 +60,7 @@
 
     &__btn {
         flex-grow: 1;
+        width: 200px;
     }
 
     &__text-title {

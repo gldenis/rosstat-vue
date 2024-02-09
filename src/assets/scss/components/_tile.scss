@@ -22,22 +22,32 @@
         width: 40px;
         height: auto;
         fill: #fff;
-        margin-bottom: auto;
     }
 
     &__value {
         color: rgba(255, 255, 255, 0.92);
         font-size: 24px;
         font-weight: 600;
-        line-height: 132%;
+        line-height: 32px;
+        white-space: nowrap;
+        min-width: 100%;
+        text-align: center;
+        margin-top: 28px;
     }
 
     &__text {
         color: rgba(255, 255, 255, 0.92);
         font-size: 14px;
         font-weight: 500;
-        line-height: 140%;
+        line-height: 19.6px;
         margin-top: 8px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        //line-height: X;        /* fallback */
+        //max-height: X*N;
     }
 }
 

@@ -24,7 +24,7 @@ const toggleSubject = (subject, lesson) => {
 </script>
 
 <template>
-  <main class="page-content page-protection__page-content">
+  <main class="page-content">
     <div class="container">
       <div class="hero">
         <div class="hero__main page-protection__hero-main">
@@ -36,8 +36,8 @@ const toggleSubject = (subject, lesson) => {
           <img src="@/assets/img/protect.png" alt="" width="240" height="240" loading="lazy">
         </div>
       </div>
-      <div class="tiles">
-        <h2 class="title title--xs tiles__section-title">Самый полный курс по защите от мошенничества <br>
+      <div class="tiles page-protection__tiles">
+        <h2 class="title title--xs tiles__section-title">Самый полный курс по защите от мошенничества
           и вымогателей в интернете</h2>
         <div class="tiles__list">
           <div class="tiles__item">

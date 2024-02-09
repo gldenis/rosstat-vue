@@ -11,7 +11,7 @@ const formSubmit = () => {
 <template>
   <main class="page-content">
     <div class="container">
-      <div class="page-head page-auth__page-head">
+      <div class="page-head--column">
         <h1 class="title">Вход и регистрация</h1>
         <AuthViewSwitcher />
       </div>

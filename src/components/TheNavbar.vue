@@ -9,6 +9,7 @@ import IconAdvantage from '@/components/icons/menu/IconAdvantage.vue'
 import IconSupport from '@/components/icons/menu/IconSupport.vue'
 import IconMe from '@/components/icons/IconMe.vue'
 import IconArrowRight from '@/components/icons/IconArrowRight.vue'
+import IconApi from '@/components/icons/menu/IconApi.vue'
 
 const mobileNavOpened = ref(false)
 const swipeStart = ref(0)
@@ -89,7 +90,7 @@ watch(
       </li>
       <li class="menu__item">
         <RouterLink to="/api" class="menu__link">
-          <IconProtection class="menu__icon" />
+          <IconApi class="menu__icon" />
           API
         </RouterLink>
       </li>
