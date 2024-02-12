@@ -142,6 +142,20 @@
     }
 }
 
+.menu__monitoring {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 16px;
+
+    &-label {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+}
+
 @media screen and (max-width: $desktop) {
     .navbar {
         visibility: hidden;

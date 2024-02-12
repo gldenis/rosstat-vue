@@ -3,14 +3,14 @@ import IconMe from '@/components/icons/IconMe.vue'
 
 import { useForm } from 'vee-validate'
 import { object, string } from "yup"
-import { reactive } from "vue"
+import BaseInput from '@/components/ui/BaseInput.vue'
 
 const schema = object({
   email: string().required('email не может быть пустым').email("введите валидный email"),
   password: string().required('пароль не может быть пустым'),
 })
 
-const { values, errors, defineField } = useForm({
+const { values, errors, defineField, handleSubmit } = useForm({
   validationSchema: schema,
 })
 
@@ -22,25 +22,26 @@ const [password, passwordAttrs] = defineField('password', {
   validateOnModelUpdate: false,
 })
 
-const formSubmit = async () => {
-  if (Object.keys(errors).length) alert("")
-}
+const formSubmit = handleSubmit(values => {
+
+})
 </script>
 
 <template>
   <form class="auth-form" @submit.prevent="formSubmit">
     <IconMe class="auth-form__icon" width="48" height="48" />
     <div class="auth-form__title">Войти</div>
-    {{ errors.length }}
     <div class="auth-form__fields-list">
-      <div class="form-field">
-        <input type="text" class="form-field__input" placeholder="Адрес эл. почты" v-model="email" v-bind="emailAttrs">
-        <div class="form-field__error">{{ errors.email }}</div>
-      </div>
-      <div class="form-field">
-        <input type="password" class="form-field__input" placeholder="Пароль" v-model="password" v-bind="passwordAttrs">
-        <div class="form-field__error">{{ errors.password }}</div>
-      </div>
+      <BaseInput type="text"
+                 v-model="email"
+                 v-bind="emailAttrs"
+                 placeholder="Адрес эл. почты"
+                 :error="errors.email"/>
+      <BaseInput type="password"
+                 v-model="password"
+                 v-bind="passwordAttrs"
+                 placeholder="Пароль"
+                 :error="errors.password"/>
     </div>
     <div class="auth-form__buttons">
       <button class="btn btn--primary">Войти</button>

@@ -10,6 +10,8 @@ import IconSupport from '@/components/icons/menu/IconSupport.vue'
 import IconMe from '@/components/icons/IconMe.vue'
 import IconArrowRight from '@/components/icons/IconArrowRight.vue'
 import IconApi from '@/components/icons/menu/IconApi.vue'
+import BaseSwitch from '@/components/ui/BaseSwitch.vue'
+import IconAsk from '@/components/icons/IconAsk.vue'
 
 const mobileNavOpened = ref(false)
 const swipeStart = ref(0)
@@ -116,6 +118,15 @@ watch(
           <IconMe class="menu__icon" />
           Вход и регистрация
         </RouterLink>
+      </li>
+      <li class="menu__item">
+        <div class="menu__monitoring">
+          <div class="menu__monitoring-label">
+            МОНИТОРИНГ
+            <IconAsk />
+          </div>
+          <BaseSwitch />
+        </div>
       </li>
       <li class="menu__item">
         <div class="menu-monitoring">
