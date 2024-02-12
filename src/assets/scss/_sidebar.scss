@@ -148,6 +148,22 @@
     justify-content: space-between;
     height: 64px;
     padding: 16px;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 80px;
+        height: 80px;
+        right: 0;
+        top: 50%;
+        transform: translate(50%, -50%);
+        border-radius: 100%;
+        background: radial-gradient(217.69% 217.69% at 27.97% 49.05%, rgb(0, 164, 105) 0%, rgb(0, 164, 105) 100%);
+        filter: blur(50.14491271972656px);
+    }
 
     &-label {
         display: flex;
